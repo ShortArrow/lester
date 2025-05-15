@@ -451,7 +451,7 @@ function expect.fail(func, expected)
   elseif expected ~= nil then
     local found = expected == err
     if not found and type(expected) == 'string' then
-      found = string.find(tostring(err), expected, 1, true)
+      found = string.find(tostring(err), expected, 1, true) ~= nil
     end
     if not found then
       error('expected function to fail\nexpected:\n'..tostring(expected)..'\ngot:\n'..tostring(err), 2)
